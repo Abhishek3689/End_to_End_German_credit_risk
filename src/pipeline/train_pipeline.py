@@ -1,5 +1,6 @@
 from src.components.data_ingest import DataIngestion
 from src.components.data_transform import DataTransform
+from src.components.model_trainer import Modeltrainer
 from src.utils import config
 from src.logger import logging
 
@@ -13,4 +14,7 @@ if __name__=="__main__":
     train_arr,test_arr=data_transform.initiate_Data_Transformation(train_path,test_path)
     logging.info(f"train_array_shape :{train_arr.shape} | test array shape :{test_arr.shape}")
     print(f"train_array_shape :{train_arr.shape} | test array shape :{test_arr.shape}")
+    model_trainer=Modeltrainer()
+    model_trainer.initiate_model_training(train_array=train_arr,test_array=test_arr)
+    print("Model Training Done")
 

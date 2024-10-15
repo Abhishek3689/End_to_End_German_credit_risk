@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feature Input Form</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Enter Features for Prediction</h1>
+    </header>
+
+    <section>
+        <form action="/submit" method="POST">
+            <!-- Age -->
+            <label for="age">Age (18-100):</label>
+            <input type="number" id="age" name="age" min="18" max="100" required><br><br>
+
+            <!-- Sex -->
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select><br><br>
+
+            <!-- Job -->
+            <label for="job">Job (0-3):</label>
+            <select id="job" name="job" required>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br><br>
+
+            <!-- Housing -->
+            <label for="housing">Housing:</label>
+            <select id="housing" name="housing" required>
+                <option value="own">Own</option>
+                <option value="free">Free</option>
+                <option value="rent">Rent</option>
+            </select><br><br>
+
+            <!-- Saving accounts -->
+            <label for="saving_accounts">Saving Accounts:</label>
+            <select id="saving_accounts" name="saving_accounts" required>
+                <option value="little">Little</option>
+                <option value="moderate">Moderate</option>
+                <option value="quite rich">Quite Rich</option>
+                <option value="rich">Rich</option>
+            </select><br><br>
+
+            <!-- Checking account -->
+            <label for="checking_account">Checking Account:</label>
+            <select id="checking_account" name="checking_account" required>
+                <option value="little">Little</option>
+                <option value="moderate">Moderate</option>
+                <option value="rich">Rich</option>
+            </select><br><br>
+
+            <!-- Credit Amount -->
+            <label for="credit_amount">Credit Amount (0-20000):</label>
+            <input type="number" id="credit_amount" name="credit_amount" min="0" max="20000" required><br><br>
+
+            <!-- Duration -->
+            <label for="duration">Duration (0-80):</label>
+            <input type="number" id="duration" name="duration" min="0" max="80" required><br><br>
+
+            <!-- Purpose -->
+            <label for="purpose">Purpose:</label>
+            <select id="purpose" name="purpose" required>
+                <option value="radio/TV">Radio/TV</option>
+                <option value="education">Education</option>
+                <option value="furniture/equipment">Furniture/Equipment</option>
+                <option value="car">Car</option>
+                <option value="business">Business</option>
+                <option value="domestic appliances">Domestic Appliances</option>
+                <option value="repairs">Repairs</option>
+                <option value="vacation/others">Vacation/Others</option>
+            </select><br><br>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+        <h2>The result of Prediciton is {{results}}</h2>
+    </section>
+</body>
+</html>

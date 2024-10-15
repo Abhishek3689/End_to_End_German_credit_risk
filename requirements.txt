@@ -5,4 +5,5 @@ pyyaml
 scikit-learn
 python-box[all]~=7.0
 ensure
-# -e .
+flask
+-e .
