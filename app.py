@@ -39,9 +39,14 @@ def predict():
         print(df_pred)
         df_scaled=preprocssor.transform(df_pred)
         y_pred=model.predict(df_scaled)
-        return render_template('home.html',results=y_pred[0])
+        if y_pred[0]==1:
+            result="Approved"
+        else:
+            result="Rejected"
+        logging.info("Prediction is done and return to template")
+        return render_template('home.html',results=result)
     except Exception as e:
         raise CustomException(e,sys)
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=80)
