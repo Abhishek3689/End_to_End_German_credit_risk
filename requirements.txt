@@ -1,0 +1,8 @@
+pandas
+numpy
+azure-storage-blob
+pyyaml
+scikit-learn
+python-box[all]~=7.0
+ensure
+# -e .

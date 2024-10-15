@@ -1,0 +1,9 @@
+
+data_ingestion:
+  raw_path: "data/raw"
+  test_path: "data/test"
+  train_path: "data/train"
+ 
+
+data_transform:
+  preprocessor_path: "artifacts/models"
