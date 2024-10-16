@@ -6,4 +6,6 @@ scikit-learn
 python-box[all]~=7.0
 ensure
 flask
+azure-keyvault-secrets
+azure-identity
 -e .

@@ -10,3 +10,6 @@ data_transform:
 
 model_trainer:
   model_path: "artifacts/models"
+
+container_name: "sample-data"
+blob_name: "german_credit_data/german_credit_data.csv"

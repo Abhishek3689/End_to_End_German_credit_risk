@@ -2,13 +2,12 @@ import yaml
 from src.logger import logging
 from src.exception import CustomException
 import os,sys
-from src.utils import config,azr_config
+from src.utils import config,   get_azure_connection_string
 from dataclasses import dataclass
 from azure.storage.blob import BlobClient
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from pathlib import Path
-# config=read_yaml("config.yml")
 
 
 @dataclass
@@ -30,9 +29,9 @@ class DataIngestion:
             logging.info("Connecting with the Azure blob")
 
             blob = BlobClient.from_connection_string(
-                conn_str=azr_config.Connection_string, 
-                container_name=azr_config.container_name, 
-                blob_name=azr_config.blob_name
+                conn_str=get_azure_connection_string(),
+                container_name=config.container_name, 
+                blob_name=config.blob_name
             )
             logging.info("Connection successful")
 

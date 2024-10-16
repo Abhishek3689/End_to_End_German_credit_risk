@@ -2,6 +2,8 @@ import yaml
 import pickle
 from box import ConfigBox
 from sklearn.metrics import accuracy_score,confusion_matrix
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
 
 def read_yaml(path):
     with open(path,'r') as f:
@@ -27,6 +29,18 @@ def evaluation(models,X_train,X_test,y_train,y_test):
 def load_object(filepath):
     with open(filepath,'rb') as file_obj:
         return pickle.load(file_obj) 
+    
+def get_azure_connection_string():
+    key_vault_url = "https://creditkey.vault.azure.net"
+    secret_name = "azure-connection-string"  # Name of the secret
+
+    # Use Managed Identity to authenticate
+    credential = DefaultAzureCredential()
+    client = SecretClient(vault_url=key_vault_url, credential=credential)
+
+    # Retrieve the secret value
+    retrieved_secret = client.get_secret(secret_name)
+    return retrieved_secret.value
 
 config=read_yaml("config.yml")
 azr_config=read_yaml("secrets.yml")
