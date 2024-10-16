@@ -43,4 +43,3 @@ def get_azure_connection_string():
     return retrieved_secret.value
 
 config=read_yaml("config.yml")
-azr_config=read_yaml("secrets.yml")
